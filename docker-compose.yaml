@@ -1,0 +1,17 @@
+version: '3.8'
+
+services:
+  sqlserver:
+    image: mcr.microsoft.com/mssql/server
+    container_name: sqlserver-dbs
+    environment:
+      - ACCEPT_EULA=Y
+      - SA_PASSWORD=Banco@9023
+      - MSSQL_PID=Developer
+    ports:
+      - "1437:1433"
+    volumes:
+      - sqlserverdata:/var/opt/mssql
+
+volumes:
+  sqlserverdata:
